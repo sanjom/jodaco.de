@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jodaco</title>
+  <meta name="description" content="JODACODE baut Websites, die Vertrauen schaffen und Anfragen bringen. Festpreis 950 €. Professionelles Webdesign für kleine und mittlere Unternehmen.">
+  <title>JODACODE – Websites, die Kunden gewinnen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -11,60 +15,773 @@
       padding: 0;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    :root {
+      --bg:        #0d1f12;
+      --bg-2:      #122118;
+      --bg-3:      #1b3022;
+      --accent:    #c4f075;
+      --accent-bg: rgba(196, 240, 117, 0.09);
+      --accent-bd: rgba(196, 240, 117, 0.22);
+      --text:      #f2eada;
+      --muted:     #7ea98a;
+      --dim:       #3f5e48;
+      --line:      rgba(196, 240, 117, 0.09);
     }
 
-    .container {
-      text-align: center;
-      padding: 2rem;
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      background: rgba(13,31,18,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
 
     .logo {
-      font-size: 3.5rem;
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .logo span { color: var(--accent); }
+
+    .nav-btn {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent);
+      color: #0d1f12;
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: opacity .18s;
+    }
+    .nav-btn:hover { opacity: .82; }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 9rem 2rem 5rem;
     }
 
-    .logo span {
-      color: #4f7cff;
+    .hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .tagline {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #888;
-      font-weight: 400;
-    }
-
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: #4f7cff;
-      margin: 2rem auto;
-    }
-
-    .coming-soon {
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      color: #555;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.03;
+      letter-spacing: -.035em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .9rem 2rem;
+      background: var(--accent);
+      color: #0d1f12;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: opacity .18s, transform .18s;
+    }
+    .btn:hover { opacity: .85; transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .btn-ghost:hover { color: var(--text); }
+
+    .hero-stats {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-num {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+    .stat-label {
+      margin-top: .25rem;
+      font-size: .78rem;
+      color: var(--dim);
+    }
+
+    /* ── SHARED SECTION ──────────────────────────────── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .sec-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .9rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -.03em;
+      color: var(--text);
+      margin-bottom: .9rem;
+    }
+
+    .sec-sub {
+      font-size: .95rem;
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.72;
+    }
+
+    /* ── FACTS ───────────────────────────────────────── */
+    .facts {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 3rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .fact-card {
+      background: var(--bg-3);
+      padding: 2rem;
+    }
+    .fact-card.hi {
+      background: var(--accent-bg);
+      outline: 1px solid var(--accent-bd);
+      outline-offset: -1px;
+    }
+
+    .fact-big {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -.04em;
+      line-height: 1;
+      margin-bottom: .6rem;
+    }
+
+    .fact-body {
+      font-size: .875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .fact-body strong { color: var(--text); font-weight: 600; }
+
+    /* ── BENEFITS ────────────────────────────────────── */
+    .benefits-stack {
+      margin-top: 3rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.75rem 2rem;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--line);
+      transition: background .15s;
+    }
+    .benefit:last-child { border-bottom: none; }
+    .benefit:hover { background: var(--bg-3); }
+
+    .benefit-idx {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--accent);
+      padding-top: .25rem;
+      flex-shrink: 0;
+      width: 22px;
+    }
+
+    .benefit h3 {
+      font-size: .97rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.01em;
+      margin-bottom: .3rem;
+    }
+
+    .benefit p {
+      font-size: .875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── OFFER ───────────────────────────────────────── */
+    .offer { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    .offer-card {
+      margin-top: 3rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .offer-head {
+      padding: 2.5rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .price {
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+    .price sup {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--muted);
+      vertical-align: super;
+    }
+    .price-note {
+      margin-top: .4rem;
+      font-size: .8rem;
+      color: var(--dim);
+    }
+
+    .badge {
+      padding: .35rem .9rem;
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-bd);
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 700;
+      border-radius: 20px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .offer-body { padding: 2.5rem; }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .7rem;
+      margin-bottom: 2rem;
+    }
+
+    .offer-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      font-size: .875rem;
+      color: var(--muted);
+    }
+    .offer-item::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .offer-footer {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .offer-aside {
+      font-size: .78rem;
+      color: var(--dim);
+    }
+
+    /* ── PROCESS ─────────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: .9rem;
+      left: calc(100% / 6);
+      right: calc(100% / 6);
+      height: 1px;
+      background: var(--line);
+    }
+
+    .step { position: relative; }
+
+    .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .step-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .65rem;
+    }
+
+    .step h3 {
+      font-size: .97rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.01em;
+      margin-bottom: .45rem;
+    }
+
+    .step p {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── ABOUT ───────────────────────────────────────── */
+    .about { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-copy p {
+      font-size: .95rem;
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 1.1rem;
+    }
+
+    .about-sig { margin-top: 1.5rem; }
+    .about-sig strong {
+      display: block;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .about-sig span {
+      font-size: .78rem;
+      color: var(--dim);
+    }
+
+    .tag-cloud {
+      background: var(--bg-3);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+    }
+
+    .tag {
+      padding: .35rem .85rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    /* ── CTA ─────────────────────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 9rem 2rem;
+    }
+
+    .cta-section h2 {
+      margin-bottom: .9rem;
+    }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 400px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .cta-email {
+      margin-top: 1.5rem;
+      font-size: .82rem;
+      color: var(--dim);
+    }
+    .cta-email a { color: var(--accent); text-decoration: none; }
+    .cta-email a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      padding: 1.75rem 2rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-right {
+      font-size: .78rem;
+      color: var(--dim);
+    }
+    .footer-right a {
+      color: var(--dim);
+      text-decoration: none;
+    }
+    .footer-right a:hover { color: var(--muted); }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.25rem; }
+
+      section { padding: 4rem 1.25rem; }
+
+      .hero { padding: 7.5rem 1.25rem 4rem; }
+
+      .hero-stats { gap: 2rem; }
+
+      .facts-grid { grid-template-columns: 1fr; }
+
+      .benefit { padding: 1.5rem 1.25rem; }
+
+      .offer-grid { grid-template-columns: 1fr; }
+
+      .offer-head { flex-direction: column; align-items: flex-start; }
+      .offer-body { padding: 1.75rem 1.5rem; }
+      .offer-head { padding: 1.75rem 1.5rem; }
+
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .steps::before { display: none; }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .cta-section { padding: 5.5rem 1.25rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">Joda<span>co</span></div>
-    <p class="tagline">Web development, done right.</p>
-    <div class="divider"></div>
-    <p class="coming-soon">Something's coming soon</p>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">JODA<span>CODE</span></div>
+    <a href="#kontakt" class="nav-btn">Jetzt anfragen</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Webdesign für Unternehmen</div>
+      <h1>Ihre Website<br>kostet Sie <em>Kunden</em></h1>
+      <p class="hero-sub">
+        Wer online nicht sofort überzeugt, verliert. Wir bauen Ihnen eine Website, die Vertrauen schafft – und Anfragen bringt.
+      </p>
+      <div class="hero-actions">
+        <a href="#angebot" class="btn">Angebot ansehen</a>
+        <a href="#prozess" class="btn-ghost">Wie es funktioniert →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">0,05 s</div>
+          <div class="stat-label">bis zum ersten Eindruck</div>
+        </div>
+        <div>
+          <div class="stat-num">75 %</div>
+          <div class="stat-label">beurteilen Seriosität am Design</div>
+        </div>
+        <div>
+          <div class="stat-num">950 €</div>
+          <div class="stat-label">Festpreis, alles inklusive</div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- FACTS -->
+  <section class="facts">
+    <div class="container">
+      <p class="sec-label">Das Problem</p>
+      <h2>Was eine schlechte Website<br>wirklich kostet</h2>
+      <p class="sec-sub">Besucher entscheiden in Sekunden – nicht Minuten. Was sie sehen, bestimmt ob sie bleiben oder abspringen.</p>
+      <div class="facts-grid">
+        <div class="fact-card hi">
+          <div class="fact-big">0,05 s</div>
+          <p class="fact-body"><strong>So lange brauchen Nutzer</strong> für ihren ersten Eindruck. Wirkt Ihre Website veraltet oder langsam, ist der Besucher weg – sofort.</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-big">75 %</div>
+          <p class="fact-body"><strong>beurteilen die Glaubwürdigkeit</strong> eines Unternehmens allein anhand des Webdesigns – noch bevor sie einen Text gelesen haben.</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-big">88 %</div>
+          <p class="fact-body"><strong>kommen nach einer schlechten Erfahrung</strong> nicht zurück. Egal wie gut das Angebot ist – die Chance ist vertan.</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-big">53 %</div>
+          <p class="fact-body"><strong>verlassen eine mobile Seite</strong>, wenn sie länger als 3 Sekunden lädt. Kein Besucher, keine Anfrage, kein Umsatz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section>
+    <div class="container">
+      <p class="sec-label">Ihre Vorteile</p>
+      <h2>Was eine neue Website<br>konkret bringt</h2>
+      <div class="benefits-stack">
+        <div class="benefit">
+          <span class="benefit-idx">01</span>
+          <div>
+            <h3>Mehr Anfragen</h3>
+            <p>Klare Struktur, klarer Call-to-Action. Besucher verstehen sofort, was sie tun sollen – und tun es.</p>
+          </div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-idx">02</span>
+          <div>
+            <h3>Bessere Google-Sichtbarkeit</h3>
+            <p>Sauberer Code, schnelle Ladezeiten und technische SEO-Grundlagen sorgen dafür, dass Sie gefunden werden.</p>
+          </div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-idx">03</span>
+          <div>
+            <h3>Mobil optimiert</h3>
+            <p>Über 60 % Ihrer Besucher kommen vom Smartphone. Ihre Website muss dort genauso überzeugend sein wie am Desktop.</p>
+          </div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-idx">04</span>
+          <div>
+            <h3>Professioneller erster Eindruck</h3>
+            <p>Design kommuniziert Kompetenz. Eine moderne Website positioniert Sie als seriösen Anbieter – bevor jemand liest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="offer" id="angebot">
+    <div class="container">
+      <p class="sec-label">Das Angebot</p>
+      <h2>Eine Website, die funktioniert.<br>Zum Festpreis.</h2>
+      <div class="offer-card">
+        <div class="offer-head">
+          <div>
+            <div class="price"><sup>€</sup>950</div>
+            <div class="price-note">Einmalig. Kein Abo. Keine versteckten Kosten.</div>
+          </div>
+          <div class="badge">Festpreis</div>
+        </div>
+        <div class="offer-body">
+          <div class="offer-grid">
+            <div class="offer-item">Individuelles Design</div>
+            <div class="offer-item">Bis zu 5 Seiten</div>
+            <div class="offer-item">Mobil &amp; Desktop optimiert</div>
+            <div class="offer-item">Schnelle Ladezeiten</div>
+            <div class="offer-item">Kontaktformular</div>
+            <div class="offer-item">Technische SEO-Grundlagen</div>
+            <div class="offer-item">DSGVO-konform</div>
+            <div class="offer-item">Übergabe &amp; Einweisung</div>
+          </div>
+          <div class="offer-footer">
+            <a href="#kontakt" class="btn">Jetzt anfragen</a>
+            <span class="offer-aside">Antwort innerhalb von 24 Stunden</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="prozess">
+    <div class="container">
+      <p class="sec-label">Der Ablauf</p>
+      <h2>In 3 Schritten zur<br>fertigen Website</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot"></div>
+          <div class="step-label">Schritt 01</div>
+          <h3>Briefing &amp; Konzept</h3>
+          <p>In einem kurzen Call (ca. 30 Min.) klären wir Ihre Ziele, Zielgruppe und Inhalte. Kein langes Formular, kein Overhead.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <div class="step-label">Schritt 02</div>
+          <h3>Design &amp; Umsetzung</h3>
+          <p>Ersten Entwurf erhalten Sie innerhalb von 5 Werktagen. Feedback-Runden inklusive – bis das Ergebnis stimmt.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <div class="step-label">Schritt 03</div>
+          <h3>Launch &amp; Übergabe</h3>
+          <p>Ihre Website geht live. Sie erhalten alle Zugänge und eine Einweisung – sodass Sie unabhängig bleiben.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="sec-label">Über JODACODE</p>
+          <h2>Kein Agentur-Overhead.<br>Direkter Ansprechpartner.</h2>
+          <p>
+            JODACODE ist kein Großbüro. Sie arbeiten direkt mit dem Entwickler zusammen – von der ersten Idee bis zum Launch.
+          </p>
+          <p>
+            Das bedeutet: schnelle Entscheidungen, ehrliche Kommunikation und ein Ergebnis, das wirklich zu Ihnen passt. Kein Projektmanager dazwischen, kein Briefing-Telefon.
+          </p>
+          <div class="about-sig">
+            <strong>David Pfleiderer</strong>
+            <span>Web Developer · JODACODE</span>
+          </div>
+        </div>
+        <div class="tag-cloud">
+          <span class="tag">Web Development</span>
+          <span class="tag">UI / UX Design</span>
+          <span class="tag">Performance</span>
+          <span class="tag">SEO Grundlagen</span>
+          <span class="tag">DSGVO &amp; Datenschutz</span>
+          <span class="tag">Schnelle Umsetzung</span>
+          <span class="tag">Direkter Kontakt</span>
+          <span class="tag">Kein Abo-Modell</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="kontakt">
+    <div class="container">
+      <p class="sec-label">Jetzt starten</p>
+      <h2>Bereit für eine Website,<br>die liefert?</h2>
+      <p class="cta-sub">Schreiben Sie mir – ich melde mich innerhalb von 24 Stunden und wir besprechen Ihr Projekt unverbindlich.</p>
+      <a href="mailto:hallo@jodacode.de" class="btn" style="font-size:1rem; padding:1rem 2.5rem;">
+        Jetzt Kontakt aufnehmen
+      </a>
+      <div class="cta-email">
+        Oder direkt: <a href="mailto:hallo@jodacode.de">hallo@jodacode.de</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">JODA<span>CODE</span></div>
+    <div class="footer-right">
+      © 2026 JODACODE &nbsp;·&nbsp;
+      <a href="#">Impressum</a> &nbsp;·&nbsp;
+      <a href="#">Datenschutz</a>
+    </div>
+  </footer>
+
 </body>
 </html>
