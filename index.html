@@ -1,70 +1,1086 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jodaco</title>
+  <title>JodaCode – Websites für Handwerker & Kleine Betriebe</title>
+  <meta name="description" content="Professionelle Websites für Handwerker, Landwirte und kleine Betriebe. Einfach, ehrlich, ab 950 €. Aus Bayern.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --cream:      #FAF8F5;
+      --sand:       #F0E8DC;
+      --warm-sand:  #E0D4C3;
+      --wood:       #8B5E3C;
+      --wood-dark:  #6B4226;
+      --sage:       #6B8F71;
+      --sage-light: #EBF3EC;
+      --text-dark:  #2C1A0E;
+      --text-mid:   #5A4535;
+      --text-muted: #7A6858;
+      --white:      #FFFFFF;
+      --radius:     12px;
+      --radius-lg:  20px;
+      --shadow:     0 4px 24px rgba(44, 26, 14, 0.08);
+      --shadow-lg:  0 8px 40px rgba(44, 26, 14, 0.14);
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 17px;
     }
 
-    .container {
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      line-height: 1.22;
+    }
+
+    h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 600; }
+    h3 { font-size: 1.15rem; font-weight: 600; }
+
+    p { color: var(--text-mid); }
+    a { color: var(--wood); text-decoration: none; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+    section { padding: 5rem 0; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.65rem;
+    }
+
+    .section-intro {
+      max-width: 600px;
+      margin: 0.9rem auto 0;
       text-align: center;
-      padding: 2rem;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.9rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+      border: 2px solid transparent;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--wood);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(139, 94, 60, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--wood-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(139, 94, 60, 0.38);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--wood);
+      border-color: var(--wood);
+    }
+
+    .btn-outline:hover {
+      background: var(--wood);
+      color: var(--white);
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--warm-sand);
+      padding: 0.9rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     .logo {
-      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #fff;
+      color: var(--text-dark);
     }
 
-    .logo span {
-      color: #4f7cff;
+    .logo em { font-style: normal; color: var(--wood); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
     }
 
-    .tagline {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #888;
+    .nav-links a {
+      color: var(--text-mid);
+      font-size: 0.93rem;
       font-weight: 400;
+      transition: color 0.2s;
     }
 
-    .divider {
-      width: 40px;
+    .nav-links a:hover { color: var(--wood); }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 6rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -120px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(107, 143, 113, 0.12) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -80px;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(139, 94, 60, 0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--sage-light);
+      color: var(--sage);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 { margin-bottom: 1.2rem; color: var(--text-dark); }
+    .hero h1 em { font-style: italic; color: var(--wood); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+      max-width: 460px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust {
+      margin-top: 1.25rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust span { display: flex; align-items: center; gap: 0.3rem; }
+    .hero-trust span::before { content: '✓'; color: var(--sage); font-weight: 700; }
+
+    /* hero visual card */
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--sand);
+      overflow: hidden;
+    }
+
+    .hero-card-top {
+      background: linear-gradient(135deg, var(--sand) 0%, var(--warm-sand) 100%);
+      padding: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .hc-avatar {
+      width: 48px; height: 48px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+
+    .hc-name { font-weight: 700; color: var(--text-dark); font-size: 0.97rem; }
+    .hc-sub  { font-size: 0.78rem; color: var(--text-muted); }
+
+    .hero-card-screen {
+      background: var(--cream);
+      margin: 1.25rem 1.25rem 0;
+      border-radius: var(--radius);
+      padding: 1rem;
+      border: 1px solid var(--sand);
+    }
+
+    .hcs-bar {
+      height: 9px;
+      border-radius: 5px;
+      background: var(--warm-sand);
+      margin-bottom: 0.55rem;
+    }
+
+    .hcs-bar.w60 { width: 60%; }
+    .hcs-bar.w40 { width: 40%; }
+
+    .hcs-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .hcs-block {
+      background: var(--white);
+      border-radius: 8px;
+      height: 50px;
+      border: 1px solid var(--sand);
+    }
+
+    .hcs-block.accent { background: var(--sage-light); border-color: transparent; }
+
+    .hero-card-stats {
+      padding: 1rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .hc-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--sand);
+      font-size: 0.87rem;
+    }
+
+    .hc-stat:last-child { border-bottom: none; }
+    .hc-stat-label { color: var(--text-muted); }
+    .hc-stat-val { font-weight: 700; color: var(--sage); }
+
+    /* ─── TRUST ─── */
+    .trust { background: var(--sand); text-align: center; }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.75rem;
+    }
+
+    .trust-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      text-align: left;
+      box-shadow: var(--shadow);
+      transition: transform 0.22s, box-shadow 0.22s;
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .trust-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+    .trust-icon {
+      width: 52px; height: 52px;
+      background: var(--sage-light);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .trust-card h3 { color: var(--text-dark); margin-bottom: 0.5rem; }
+    .trust-card p  { font-size: 0.94rem; line-height: 1.68; }
+
+    /* ─── PROBLEM ─── */
+    .problem { background: var(--cream); }
+
+    .problem-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .problem h2 { margin-bottom: 1.5rem; }
+
+    .problem-list { list-style: none; }
+
+    .problem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--sand);
+      font-size: 0.97rem;
+      color: var(--text-mid);
+    }
+
+    .problem-list li:last-child { border-bottom: none; }
+
+    .p-dot {
+      width: 8px; height: 8px;
+      background: var(--warm-sand);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .problem-note {
+      margin-top: 1.5rem;
+      padding: 1.1rem 1.4rem;
+      background: var(--sage-light);
+      border-left: 3px solid var(--sage);
+      border-radius: var(--radius);
+      color: var(--sage);
+      font-weight: 700;
+      font-size: 0.97rem;
+    }
+
+    .stat-pills { display: flex; flex-direction: column; gap: 1rem; }
+
+    .stat-pill {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--wood);
+      min-width: 3.5rem;
+      line-height: 1;
+    }
+
+    .stat-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.45; }
+
+    /* ─── SOLUTION ─── */
+    .solution {
+      background: var(--wood);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .solution h2 { color: var(--white); }
+
+    .solution .section-label { color: rgba(255,255,255,0.5); }
+
+    .solution > .container > p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+
+    .sol-features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      margin-top: 2.75rem;
+    }
+
+    .sol-feat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .sol-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+
+    /* ─── BENEFITS ─── */
+    .benefits { background: var(--cream); text-align: center; }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.75rem;
+    }
+
+    .benefit-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--sand);
+      transition: transform 0.22s;
+    }
+
+    .benefit-card:hover { transform: translateY(-4px); }
+
+    .benefit-icon {
+      width: 68px; height: 68px;
+      background: linear-gradient(135deg, var(--sage-light), var(--sand));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      margin: 0 auto 1.4rem;
+    }
+
+    .benefit-card h3 { color: var(--text-dark); margin-bottom: 0.65rem; }
+    .benefit-card p  { font-size: 0.94rem; line-height: 1.68; }
+
+    /* ─── PROCESS ─── */
+    .process { background: var(--sand); text-align: center; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.75rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 35px;
+      left: calc(12.5% + 12px);
+      right: calc(12.5% + 12px);
       height: 2px;
-      background: #4f7cff;
-      margin: 2rem auto;
+      background: var(--warm-sand);
     }
 
-    .coming-soon {
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
+    .process-step { position: relative; z-index: 1; }
+
+    .step-num {
+      width: 70px; height: 70px;
+      background: var(--white);
+      border: 2.5px solid var(--warm-sand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--wood);
+      box-shadow: var(--shadow);
+      transition: background 0.22s, border-color 0.22s, color 0.22s;
+    }
+
+    .process-step:hover .step-num {
+      background: var(--wood);
+      border-color: var(--wood);
+      color: var(--white);
+    }
+
+    .process-step h3 { color: var(--text-dark); margin-bottom: 0.5rem; font-size: 1rem; }
+    .process-step p  { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── PRICE ─── */
+    .price { background: var(--cream); text-align: center; }
+
+    .price-card {
+      max-width: 500px;
+      margin: 2.75rem auto 0;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 2px solid var(--sand);
+      overflow: hidden;
+    }
+
+    .price-head {
+      background: var(--wood);
+      padding: 2.25rem 2rem;
+      color: var(--white);
+    }
+
+    .price-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #555;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .price-amount sup { font-size: 1.6rem; vertical-align: super; }
+
+    .price-sub {
+      margin-top: 0.4rem;
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .price-body { padding: 1.75rem 2rem; }
+
+    .price-items { list-style: none; }
+
+    .price-items li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.62rem 0;
+      border-bottom: 1px solid var(--sand);
+      font-size: 0.94rem;
+      color: var(--text-mid);
+    }
+
+    .price-items li:last-child { border-bottom: none; }
+
+    .p-check {
+      width: 22px; height: 22px;
+      background: var(--sage-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--sage);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .price-footnote {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 1.1rem;
+      text-align: center;
+    }
+
+    .price-cta { padding: 0 2rem 2rem; }
+
+    .price-cta .btn { width: 100%; }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--sand); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual { position: relative; }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/3.2;
+      background: linear-gradient(135deg, var(--warm-sand) 0%, var(--sand) 50%, #ddd0c0 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -0.8rem;
+      right: -0.8rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 0.65rem 1.1rem;
+      box-shadow: var(--shadow);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      border: 1px solid var(--sand);
+    }
+
+    .about-content h2 { margin-bottom: 1rem; }
+
+    .about-content p { margin-bottom: 1rem; line-height: 1.78; }
+
+    .about-quote {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--white);
+      border-left: 3px solid var(--wood);
+      border-radius: var(--radius);
+      font-style: italic;
+      color: var(--text-mid);
+      font-size: 0.97rem;
+      line-height: 1.68;
+      box-shadow: var(--shadow);
+    }
+
+    /* ─── CTA ─── */
+    .cta-section { background: var(--cream); text-align: center; padding: 6rem 0; }
+
+    .cta-box {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--sand);
+    }
+
+    .cta-box h2 { margin-bottom: 0.9rem; }
+    .cta-box > p { margin-bottom: 2rem; font-size: 1.03rem; }
+
+    .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+
+    .cta-actions .btn { min-width: 280px; }
+
+    .cta-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--wood);
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: color 0.2s;
+    }
+
+    .cta-email:hover { color: var(--wood-dark); }
+
+    .cta-note { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--text-dark);
+      padding: 1.75rem 0;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.84rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .footer-logo em { font-style: normal; color: #c89070; }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.75); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .hero-inner       { grid-template-columns: 1fr; }
+      .hero-card        { display: none; }
+      .hero h1          { text-align: center; }
+      .hero-sub         { margin-left: auto; margin-right: auto; text-align: center; }
+      .hero-actions     { justify-content: center; }
+      .hero-trust       { justify-content: center; }
+      .hero-badge       { display: flex; justify-content: center; }
+
+      .trust-grid       { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+      .benefits-grid    { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+      .problem-inner    { grid-template-columns: 1fr; }
+      .stat-pills       { display: none; }
+      .about-inner      { grid-template-columns: 1fr; }
+      .about-visual     { display: none; }
+      .process-steps    { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 3.5rem 0; }
+      .hero   { padding: 3.5rem 0 3rem; }
+      .nav-links { display: none; }
+      .process-steps { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .cta-box { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">Joda<span>co</span></div>
-    <p class="tagline">Web development, done right.</p>
-    <div class="divider"></div>
-    <p class="coming-soon">Something's coming soon</p>
-  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Joda<em>Code</em></a>
+      <ul class="nav-links">
+        <li><a href="#fuer-wen">Für wen</a></li>
+        <li><a href="#prozess">Ablauf</a></li>
+        <li><a href="#preis">Preis</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+      </ul>
+      <a href="#kontakt" class="btn btn-primary">Kostenlos anfragen</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-badge">🌿 Für Handwerker &amp; lokale Betriebe</div>
+          <h1>Damit Kunden Sie<br><em>online finden</em> —<br>nicht Ihre Konkurrenz.</h1>
+          <p class="hero-sub">Wir bauen professionelle Websites für Handwerker, Landwirte und kleine Betriebe. Persönlich, verständlich, ohne Technikstress.</p>
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-primary">Kostenlos beraten lassen</a>
+            <a href="#preis" class="btn btn-outline">Preise ansehen</a>
+          </div>
+          <div class="hero-trust">
+            <span>Kostenlos &amp; unverbindlich</span>
+            <span>Antwort innerhalb 24h</span>
+            <span>Fester Preis, keine Überraschungen</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hc-avatar">🏠</div>
+            <div>
+              <div class="hc-name">Schreinerei Huber</div>
+              <div class="hc-sub">Neue Website — seit 2025</div>
+            </div>
+          </div>
+          <div style="padding: 0 1.25rem;">
+            <div class="hero-card-screen">
+              <div class="hcs-bar" style="width:80%; height:10px;"></div>
+              <div class="hcs-bar w60"></div>
+              <div class="hcs-blocks">
+                <div class="hcs-block accent"></div>
+                <div class="hcs-block"></div>
+                <div class="hcs-block"></div>
+                <div class="hcs-block accent" style="opacity:.6;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card-stats">
+            <div class="hc-stat">
+              <span class="hc-stat-label">Neue Anfragen / Monat</span>
+              <span class="hc-stat-val">+12</span>
+            </div>
+            <div class="hc-stat">
+              <span class="hc-stat-label">Google-Sichtbarkeit</span>
+              <span class="hc-stat-val">Top 3 lokal</span>
+            </div>
+            <div class="hc-stat">
+              <span class="hc-stat-label">Mobil-Anteil</span>
+              <span class="hc-stat-val">74 %</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRUST ═══ -->
+  <section class="trust" id="fuer-wen">
+    <div class="container">
+      <span class="section-label">Für wen wir arbeiten</span>
+      <h2>Für Leute, die ihr Handwerk kennen.</h2>
+      <p class="section-intro">Keine Konzerne, keine Startups. Wir arbeiten mit echten Betrieben — und wir verstehen Ihren Alltag.</p>
+
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">🔨</div>
+          <h3>Handwerker</h3>
+          <p>Als Elektriker, Schreiner, Fliesenleger oder Maler haben Sie keine Zeit für Technik-Kram. Ihre Website soll Aufträge bringen — darum kümmern wir uns.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🌾</div>
+          <h3>Landwirte &amp; Direktvermarkter</h3>
+          <p>Ob Hofverkauf, Ferienwohnungen oder Gemüsekiste: Wir zeigen Ihren Kunden, wer Sie sind, was Sie anbieten — und wo Sie zu finden sind.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🏪</div>
+          <h3>Kleine Betriebe</h3>
+          <p>Vom Friseursalon bis zur Bäckerei: Heute suchen Kunden online. Eine gute Website ist Ihr digitales Schaufenster — rund um die Uhr geöffnet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROBLEM ═══ -->
+  <section class="problem">
+    <div class="container">
+      <div class="problem-inner">
+        <div>
+          <span class="section-label">Das kennen wir</span>
+          <h2>Kennen Sie das?</h2>
+          <ul class="problem-list">
+            <li><div class="p-dot"></div>Ihre Website sieht auf dem Handy komisch aus.</li>
+            <li><div class="p-dot"></div>Kunden finden Sie nicht bei Google — aber Ihre Konkurrenz schon.</li>
+            <li><div class="p-dot"></div>Die alte Website ist veraltet und Sie wissen nicht, wie Sie das ändern sollen.</li>
+            <li><div class="p-dot"></div>Sie haben schlicht keine Zeit, sich darum zu kümmern.</li>
+            <li><div class="p-dot"></div>Agenturen wollen tausende Euro und erklären nichts verständlich.</li>
+          </ul>
+          <div class="problem-note">
+            Das ist normal — und das lässt sich ändern.
+          </div>
+        </div>
+
+        <div class="stat-pills">
+          <div class="stat-pill">
+            <div class="stat-num">76%</div>
+            <div class="stat-text">der Kunden beurteilen ein Unternehmen anhand seiner Website — bevor sie anrufen.</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-num">70%</div>
+            <div class="stat-text">der lokalen Suchanfragen kommen vom Smartphone.</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-num">46%</div>
+            <div class="stat-text">aller Google-Suchen haben einen lokalen Bezug — z.&nbsp;B. „Elektriker in meiner Nähe".</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOLUTION ═══ -->
+  <section class="solution">
+    <div class="container">
+      <span class="section-label">Unsere Antwort</span>
+      <h2>Wir kümmern uns darum.</h2>
+      <p>Sie erklären uns Ihr Geschäft. Wir bauen die Website. So einfach ist das. Kein Technik-Kauderwelsch, keine versteckten Kosten, kein Stress — damit Sie sich ums Wesentliche kümmern können.</p>
+      <div class="sol-features">
+        <div class="sol-feat"><div class="sol-dot"></div>Persönliche Betreuung</div>
+        <div class="sol-feat"><div class="sol-dot"></div>Feste, klare Preise</div>
+        <div class="sol-feat"><div class="sol-dot"></div>Kein Fachchinesisch</div>
+        <div class="sol-feat"><div class="sol-dot"></div>Schnelle Umsetzung</div>
+        <div class="sol-feat"><div class="sol-dot"></div>Aus Bayern — für Deutschland</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFITS ═══ -->
+  <section class="benefits">
+    <div class="container">
+      <span class="section-label">Was Sie gewinnen</span>
+      <h2>Was Sie davon haben</h2>
+      <p class="section-intro">Eine gute Website ist keine Ausgabe — sie ist eine Investition, die sich bezahlt macht.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3>Mehr Kunden</h3>
+          <p>Kunden suchen Handwerker über Google. Wenn Sie dort sichtbar sind, kommen Anfragen — ganz automatisch, auch wenn Sie gerade auf der Baustelle sind.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">✨</div>
+          <h3>Besserer erster Eindruck</h3>
+          <p>Ihre Website ist oft der erste Kontakt. Eine professionelle Präsenz vermittelt Vertrauen — noch bevor Sie ein Wort gesagt haben.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📱</div>
+          <h3>Auf jedem Gerät</h3>
+          <p>Über 70 % surfen mit dem Handy. Ihre Website läuft auf Smartphone, Tablet und Computer — immer schnell, immer sauber.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section class="process" id="prozess">
+    <div class="container">
+      <span class="section-label">Der Ablauf</span>
+      <h2>So läuft es ab</h2>
+      <p class="section-intro">Vier einfache Schritte — von null zu Ihrer neuen Website.</p>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <h3>Kurzes Gespräch</h3>
+          <p>15 Minuten, kostenlos, unverbindlich. Sie erzählen uns, was Ihr Betrieb macht — wir hören zu.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <h3>Wir legen los</h3>
+          <p>Wir übernehmen Design und Texte. Sie müssen nichts vorbereiten — wir fragen nach, was wir brauchen.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <h3>Gemeinsam prüfen</h3>
+          <p>Sie schauen sich alles an. Änderungswünsche? Kein Problem — so lange, bis Sie wirklich zufrieden sind.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <h3>Online gehen</h3>
+          <p>Ihre Website geht live. Ab jetzt finden Kunden Sie — auch wenn Sie schlafen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRICE ═══ -->
+  <section class="price" id="preis">
+    <div class="container">
+      <span class="section-label">Transparent &amp; fair</span>
+      <h2>Was es kostet</h2>
+      <p class="section-intro">Kein Kleingedrucktes. Keine Abo-Falle. Alles drin.</p>
+
+      <div class="price-card">
+        <div class="price-head">
+          <div class="price-badge">Komplettpaket</div>
+          <div class="price-amount"><sup>€</sup>950</div>
+          <div class="price-sub">Einmalig — keine monatlichen Überraschungen</div>
+        </div>
+        <div class="price-body">
+          <ul class="price-items">
+            <li><div class="p-check">✓</div> Individuelles Design — passend zu Ihrem Betrieb</li>
+            <li><div class="p-check">✓</div> 5 Seiten: Start, Über uns, Leistungen, Galerie, Kontakt</li>
+            <li><div class="p-check">✓</div> Mobil optimiert — perfekt auf jedem Gerät</li>
+            <li><div class="p-check">✓</div> Google-Grundoptimierung (SEO) für lokale Sichtbarkeit</li>
+            <li><div class="p-check">✓</div> 1 Jahr Hosting &amp; Domain inklusive</li>
+            <li><div class="p-check">✓</div> Kontaktformular &amp; Google-Karte eingebunden</li>
+            <li><div class="p-check">✓</div> Unbegrenzte Änderungen bis zur Abnahme</li>
+            <li><div class="p-check">✓</div> Persönlicher Ansprechpartner — immer erreichbar</li>
+          </ul>
+          <p class="price-footnote">Nach dem ersten Jahr: ab 15 €/Monat für Hosting &amp; laufende Betreuung.</p>
+        </div>
+        <div class="price-cta">
+          <a href="#kontakt" class="btn btn-primary">Jetzt anfragen — kostenlos &amp; unverbindlich</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="ueber-uns">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-visual">
+          <div class="about-photo">👨‍💻</div>
+          <div class="about-badge">Aus Bayern 🇩🇪</div>
+        </div>
+        <div class="about-content">
+          <span class="section-label">Wer wir sind</span>
+          <h2>Nicht Agentur.<br>Menschen.</h2>
+          <p>Wir sind David und Johannes — zwei Entwickler aus Bayern. Wir haben genug Betriebe gesehen, die zu viel Geld für mittelmäßige Websites bezahlt haben und dafür zu wenig Erklärung bekommen haben.</p>
+          <p>Deshalb machen wir das anders: direkt, ehrlich, auf Augenhöhe. Wir reden nicht in Fachbegriffen. Wir fragen nach, wir hören zu — und wir bauen Websites, auf die Sie stolz sein können.</p>
+          <div class="about-quote">
+            „Jeder Betrieb verdient eine Website, die wirklich funktioniert — egal ob Einpersonenbetrieb oder Familienbetrieb in zweiter Generation."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section" id="kontakt">
+    <div class="container">
+      <div class="cta-box">
+        <span class="section-label">Jetzt starten</span>
+        <h2>Bereit für Ihre neue Website?</h2>
+        <p>Schreiben Sie uns — wir melden uns innerhalb eines Werktags. Keine Verpflichtung, kein Verkaufsdruck.</p>
+        <div class="cta-actions">
+          <a href="mailto:hallo@jodaco.de" class="btn btn-primary">Jetzt kostenlos anfragen</a>
+          <a href="mailto:hallo@jodaco.de" class="cta-email">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hallo@jodaco.de
+          </a>
+          <p class="cta-note">Antwort innerhalb 24h &nbsp;·&nbsp; Kostenlos &amp; unverbindlich</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Joda<em>Code</em></div>
+        <div>© 2025 JodaCode &nbsp;·&nbsp; jodaco.de</div>
+        <div class="footer-links">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
