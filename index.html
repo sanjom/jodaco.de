@@ -1,70 +1,585 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jodaco</title>
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .container {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .logo {
-      font-size: 3.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #fff;
-    }
-
-    .logo span {
-      color: #4f7cff;
-    }
-
-    .tagline {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #888;
-      font-weight: 400;
-    }
-
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: #4f7cff;
-      margin: 2rem auto;
-    }
-
-    .coming-soon {
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #555;
-    }
-  </style>
+  <title>JODACODE – Neue Website für Ihren Betrieb | Jodaco.de</title>
+  <meta name="description" content="Veraltete Website? Wir bauen Ihnen eine moderne Website, die Kunden überzeugt – einfach, schnell und ohne Fachchinesisch. Ab 950€.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="logo">Joda<span>co</span></div>
-    <p class="tagline">Web development, done right.</p>
-    <div class="divider"></div>
-    <p class="coming-soon">Something's coming soon</p>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">JODA<span>CODE</span></div>
+    <a href="#cta-final" class="btn nav-cta">Kostenlose Beratung</a>
   </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- LEFT: Text -->
+      <div class="hero-text reveal">
+        <p class="hero-eyebrow">Webdesign für Handwerker &amp; Familienbetriebe</p>
+        <h1>
+          Ihre alte Website<br>
+          kostet Sie <em>täglich Kunden</em> –<br>
+          ohne dass Sie es merken.
+        </h1>
+        <p class="hero-sub">
+          Wer heute im Internet nach einem Handwerker, einem Schreiner oder einem
+          Elektriker sucht, entscheidet in Sekunden: wirkt die Website vertrauenswürdig
+          – oder klickt man weiter?
+        </p>
+        <div class="hero-actions">
+          <a href="#cta-final" class="btn">Kostenlose Erstberatung &rarr;</a>
+        </div>
+        <p class="hero-note">Unverbindlich &middot; Kein Fachchinesisch &middot; Auf Augenhöhe</p>
+      </div>
+
+      <!-- RIGHT: Comparison mockup -->
+      <div class="comparison reveal">
+
+        <!-- Old website mockup -->
+        <div class="mock mock-old">
+          <div class="mock-bar">
+            <span class="dot" style="background:#ff6b6b"></span>
+            Alte Website
+          </div>
+          <div class="mock-body">
+            <div class="old-badge">NEU! Besuchen Sie uns!</div>
+            <div class="old-header">Müller Sanitär GmbH &amp; Co. KG</div>
+            <div class="old-nav-strip">
+              <div class="old-nav-item">Start</div>
+              <div class="old-nav-item">Leistungen</div>
+              <div class="old-nav-item">Kontakt</div>
+              <div class="old-nav-item">Impressum</div>
+            </div>
+            <div class="old-img-placeholder">[ Bild lädt... ]</div>
+            <div class="old-text-block">
+              Willkommen auf unserer Homepage! Wir sind seit 1994 Ihr
+              zuverlässiger Partner für alle Sanitärarbeiten im Raum...
+            </div>
+            <div class="old-text-block" style="font-size:.5rem; color:#999;">
+              © 2009 Müller Sanitär | Diese Seite verwendet Cookies.
+            </div>
+          </div>
+          <div class="mock-label">❌ Kunden gehen weiter</div>
+        </div>
+
+        <!-- New website mockup -->
+        <div class="mock mock-new">
+          <div class="mock-bar">
+            <span class="dot" style="background:#2ecc71"></span>
+            Neue Website
+          </div>
+          <div class="mock-body">
+            <div class="new-hero-mock">
+              <div class="new-hero-title">Müller Sanitär – Ihr Profi vor Ort</div>
+              <div class="new-hero-sub">
+                Schnell. Zuverlässig. Seit 30 Jahren im Raum München.
+              </div>
+              <div class="new-cta-mock">Jetzt anrufen &rarr;</div>
+            </div>
+            <div class="new-card-row">
+              <div class="new-card">
+                <div class="new-card-icon">⭐</div>
+                <div class="new-card-label">Top Bewertungen</div>
+              </div>
+              <div class="new-card">
+                <div class="new-card-icon">📱</div>
+                <div class="new-card-label">Mobil optimiert</div>
+              </div>
+              <div class="new-card">
+                <div class="new-card-icon">📞</div>
+                <div class="new-card-label">Einfach Kontakt</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-label">✅ Kunden rufen an</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PROBLEM SECTION
+════════════════════════════════════════════ -->
+<section id="problem">
+  <div class="container">
+    <div class="problem-intro reveal">
+      <span class="section-label">Das Problem</span>
+      <h2>Warum veraltete Websites Kunden verschrecken</h2>
+      <p>Kunden schauen sich Ihre Website an und entscheiden in wenigen Sekunden:
+         Ist das ein Betrieb, dem ich vertraue? Oder suche ich weiter?</p>
+    </div>
+
+    <div class="problems-grid">
+
+      <div class="problem-card reveal">
+        <div class="problem-icon">📵</div>
+        <h3>Nicht auf dem Handy nutzbar</h3>
+        <p>Über 70 % der Menschen suchen heute mit dem Smartphone. Wenn Ihre
+           Website auf dem Handy kaum lesbar ist, klicken sie sofort weg –
+           zum Wettbewerb.</p>
+      </div>
+
+      <div class="problem-card reveal">
+        <div class="problem-icon">🔎</div>
+        <h3>Bei Google kaum zu finden</h3>
+        <p>Alte Websites werden von Google schlechter bewertet. Wer nicht auf
+           Seite 1 auftaucht, existiert für viele Kunden schlicht nicht.</p>
+      </div>
+
+      <div class="problem-card reveal">
+        <div class="problem-icon">😬</div>
+        <h3>Sieht unprofessionell aus</h3>
+        <p>Eine veraltete Website vermittelt: „Die haben sich seit Jahren
+           nicht weiterentwickelt." Das schreckt ab – auch wenn Ihre Arbeit
+           erstklassig ist.</p>
+      </div>
+
+      <div class="problem-card reveal">
+        <div class="problem-icon">🐌</div>
+        <h3>Lädt viel zu langsam</h3>
+        <p>Wer länger als 3 Sekunden warten muss, geht. Alte Websites
+           laden oft 10–15 Sekunden. Das kostet Sie täglich Anfragen.</p>
+      </div>
+
+      <div class="problem-card reveal">
+        <div class="problem-icon">📞</div>
+        <h3>Kein einfacher Kontaktweg</h3>
+        <p>Ihre Telefonnummer ist irgendwo auf Seite 3 versteckt? Kunden
+           suchen nicht lange. Ein klarer „Jetzt anrufen"-Knopf fehlt oft
+           komplett.</p>
+      </div>
+
+      <div class="problem-card reveal">
+        <div class="problem-icon">🔐</div>
+        <h3>Kein SSL – Browser warnt</h3>
+        <p>Zeigt der Browser „Nicht sicher"? Dann verlassen die meisten
+           Besucher Ihre Seite sofort. Kein SSL ist ein Vertrauenskiller.</p>
+      </div>
+
+    </div>
+
+    <div class="problem-consequence reveal">
+      <p>
+        <strong>Die bittere Wahrheit:</strong> Jeder Kunde, der Ihre Website besucht und
+        trotzdem nicht anruft, ist ein Kunde, den Sie an den Wettbewerb verloren haben –
+        ohne es zu wissen.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     REALIZATION
+════════════════════════════════════════════ -->
+<section id="realization">
+  <div class="container">
+    <div class="realization-inner reveal">
+      <span class="section-label">Der Selbstcheck</span>
+      <h2>Betrifft mich das auch?</h2>
+
+      <ul class="checklist">
+        <li>
+          <span class="check-icon">?</span>
+          Wann haben Sie das letzte Mal Ihre Website auf dem Handy angeschaut?
+        </li>
+        <li>
+          <span class="check-icon">?</span>
+          Wissen Sie, ob Ihre Website bei Google auf Seite 1 erscheint?
+        </li>
+        <li>
+          <span class="check-icon">?</span>
+          Wurde Ihre Website in den letzten 5 Jahren überarbeitet?
+        </li>
+        <li>
+          <span class="check-icon">?</span>
+          Können Kunden Sie auf der Website mit einem Klick anrufen?
+        </li>
+        <li>
+          <span class="check-icon">?</span>
+          Laden Bilder und Inhalte innerhalb von 3 Sekunden?
+        </li>
+        <li>
+          <span class="check-icon">?</span>
+          Zeigt Ihre Website, warum jemand <em>genau zu Ihnen</em> kommen soll?
+        </li>
+      </ul>
+
+      <p class="realization-cta-note">
+        Wenn Sie bei einer dieser Fragen unsicher sind – dann ist es Zeit für
+        ein offenes Gespräch. Kostenlos und ohne Druck.
+      </p>
+
+      <a href="#cta-final" class="btn">Kostenlose Analyse anfragen</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SOLUTION
+════════════════════════════════════════════ -->
+<section id="solution">
+  <div class="container">
+    <div class="solution-grid">
+
+      <div class="solution-text reveal">
+        <span class="section-label">Was wir tun</span>
+        <h2>Wir bauen Ihre Website neu –<br>klar, modern und auf Kunden ausgerichtet.</h2>
+        <p>
+          Kein Fachchinesisch. Kein wochenlanger Hin und Her. Wir kümmern uns um
+          alles – von der ersten Idee bis zur fertigen Website. Sie müssen sich um
+          nichts kümmern.
+        </p>
+        <p>
+          Wir verstehen Handwerksbetriebe. Wir wissen, dass Sie keine Zeit haben für
+          endlose Meetings. Deshalb arbeiten wir schnell, klar und direkt.
+        </p>
+        <ul class="result-list">
+          <li>Fertig in 4–6 Wochen</li>
+          <li>Keine versteckten Kosten</li>
+          <li>Sie müssen keine Technik verstehen</li>
+          <li>Persönliche Betreuung auf Augenhöhe</li>
+          <li>Sie behalten immer die volle Kontrolle</li>
+        </ul>
+      </div>
+
+      <div class="solution-visual reveal">
+        <h3>Vorher vs. Nachher</h3>
+
+        <div class="stat-row">
+          <div class="stat-label">Mobilfreundlichkeit</div>
+          <div class="stat-bars">
+            <div class="bar-wrap">
+              <div class="bar bar-old" id="bar-mobile-old"></div>
+              <span class="bar-tag">Vorher</span>
+            </div>
+            <div class="bar-wrap">
+              <div class="bar bar-new" id="bar-mobile-new"></div>
+              <span class="bar-tag">Nachher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-label">Ladegeschwindigkeit</div>
+          <div class="stat-bars">
+            <div class="bar-wrap">
+              <div class="bar bar-old" id="bar-speed-old"></div>
+              <span class="bar-tag">Vorher</span>
+            </div>
+            <div class="bar-wrap">
+              <div class="bar bar-new" id="bar-speed-new"></div>
+              <span class="bar-tag">Nachher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-label">Google-Sichtbarkeit</div>
+          <div class="stat-bars">
+            <div class="bar-wrap">
+              <div class="bar bar-old" id="bar-google-old"></div>
+              <span class="bar-tag">Vorher</span>
+            </div>
+            <div class="bar-wrap">
+              <div class="bar bar-new" id="bar-google-new"></div>
+              <span class="bar-tag">Nachher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-label">Kundenanfragen</div>
+          <div class="stat-bars">
+            <div class="bar-wrap">
+              <div class="bar bar-old" id="bar-leads-old"></div>
+              <span class="bar-tag">Vorher</span>
+            </div>
+            <div class="bar-wrap">
+              <div class="bar bar-new" id="bar-leads-new"></div>
+              <span class="bar-tag">Nachher</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     BENEFITS
+════════════════════════════════════════════ -->
+<section id="benefits">
+  <div class="container">
+    <div class="benefits-header reveal">
+      <span class="section-label">Ihre Vorteile</span>
+      <h2>Was Sie mit einer neuen Website gewinnen</h2>
+      <p>Nicht Technik um der Technik willen – sondern echte Ergebnisse für Ihren Betrieb.</p>
+    </div>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">📈</div>
+        <div>
+          <h3>Mehr Anfragen &amp; Anrufe</h3>
+          <p>Eine klare Website mit sichtbarem Kontaktweg führt dazu, dass Besucher
+             tatsächlich anrufen oder schreiben – statt wegzuklicken.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🏅</div>
+        <div>
+          <h3>Professioneller erster Eindruck</h3>
+          <p>Ihre Arbeit ist erstklassig – Ihre Website soll das von Anfang an zeigen.
+             Kunden vertrauen Betrieben, die online einen guten Auftritt haben.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">📱</div>
+        <div>
+          <h3>Perfekt auf jedem Gerät</h3>
+          <p>Handy, Tablet, Computer – Ihre neue Website sieht überall gut aus und
+             funktioniert einwandfrei. Kein Zoomen, kein Scrollen.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🔍</div>
+        <div>
+          <h3>Besser bei Google gefunden</h3>
+          <p>Wir bauen Ihre Website so, dass Google sie mag. Mehr Sichtbarkeit bedeutet
+             mehr Besucher – und mehr potenzielle Kunden.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🛠️</div>
+        <div>
+          <h3>Sie müssen nichts selbst machen</h3>
+          <p>Kein Baukastensystem, kein Herumbasteln. Wir bauen alles für Sie –
+             fertig, schlüsselfertig, und Sie können loslegen.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🤝</div>
+        <div>
+          <h3>Persönlicher Ansprechpartner</h3>
+          <p>Kein anonymes Support-Ticket. Sie haben immer einen echten Menschen
+             als Ansprechpartner – der Ihre Situation kennt.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════════ -->
+<section id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="section-label">So einfach geht's</span>
+      <h2>In 3 Schritten zur neuen Website</h2>
+      <p>Kein komplizierter Ablauf. Kein Chaos. Einfach und klar – von Anfang bis Ende.</p>
+    </div>
+
+    <div class="steps">
+
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Kostenloses Gespräch</h3>
+        <p>Wir lernen uns kennen. Sie erzählen uns von Ihrem Betrieb –
+           was Sie machen, wen Sie ansprechen wollen. Kein Druck, keine Verpflichtung.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Wir bauen Ihre Website</h3>
+        <p>Sie liefern Fotos und Infos, wir erledigen den Rest. In 4–6 Wochen
+           zeigen wir Ihnen das Ergebnis – und passen es an, bis es passt.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Online – fertig!</h3>
+        <p>Ihre neue Website geht live. Ab sofort können Kunden Sie einfach finden
+           und unkompliziert Kontakt aufnehmen. Wir bleiben für Fragen erreichbar.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PRICE
+════════════════════════════════════════════ -->
+<section id="price">
+  <div class="container">
+    <div class="price-inner reveal">
+      <span class="section-label">Transparente Preise</span>
+      <h2>Was kostet eine neue Website?</h2>
+      <p>Keine versteckten Kosten, keine bösen Überraschungen. Wir nennen Ihnen von
+         Anfang an einen klaren Preis.</p>
+
+      <div class="price-card">
+        <div class="price-amount">950 <span>€</span></div>
+        <div class="price-note">einmalig, inkl. MwSt. &middot; Hosting ab 19 €/Monat</div>
+
+        <ul class="price-includes">
+          <li>Professionelle Website mit bis zu 6 Seiten</li>
+          <li>Mobil optimiert (Handy, Tablet, Computer)</li>
+          <li>Schnelle Ladezeit – Google-freundlich</li>
+          <li>SSL-Zertifikat (sicheres „https")</li>
+          <li>Kontaktformular &amp; Klick-Anruf-Funktion</li>
+          <li>Grundlegende Suchmaschinenoptimierung</li>
+          <li>Impressum &amp; Datenschutz rechtssicher</li>
+          <li>30 Tage kostenloser Support nach Launch</li>
+        </ul>
+
+        <div class="price-value-note">
+          💡 <strong>Zum Vergleich:</strong> Viele Betriebe verlieren monatlich mehrere
+          tausend Euro an entgangenen Kunden durch eine schlechte Website. Eine einmalige
+          Investition von 950 € kann sich schon nach dem ersten Neuauftrag rentiert haben.
+        </div>
+
+        <a href="#cta-final" class="btn price-btn-full">
+          Kostenlose Erstberatung anfragen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="founders-visual reveal">
+        <div class="founder-card">
+          <div class="founder-photo f1">👨‍💻</div>
+          <div class="founder-info">
+            <div class="founder-name">Jonas</div>
+            <div class="founder-role">Design &amp; Konzept</div>
+          </div>
+        </div>
+        <div class="founder-card">
+          <div class="founder-photo f2">👨‍💻</div>
+          <div class="founder-info">
+            <div class="founder-name">David</div>
+            <div class="founder-role">Entwicklung &amp; Technik</div>
+          </div>
+        </div>
+        <div class="founder-quote">
+          <p>
+            „Wir haben selbst erlebt, wie gute Handwerker durch schlechte Websites unsichtbar
+             bleiben. Das wollen wir ändern – Betrieb für Betrieb."
+          </p>
+          <cite>– Jonas &amp; David, Gründer von JODACODE</cite>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <span class="section-label">Wer wir sind</span>
+        <h2>Zwei junge Gründer – direkt und ohne Umwege.</h2>
+        <p>
+          Wir sind Jonas und David, Gründer von JODACODE. Keine große Agentur mit
+          anonymen Mitarbeitern – sondern zwei echte Menschen, die Sie persönlich
+          betreuen.
+        </p>
+        <p>
+          Wir kommen selbst aus der Region und wissen: Kleine Betriebe brauchen keine
+          überteuerten Lösungen, sondern etwas, das funktioniert und Kunden bringt.
+          Genau das liefern wir.
+        </p>
+        <p>
+          Mit uns arbeiten Sie nie mit einem anonymen Ticket-System. Sie schreiben uns
+          eine Nachricht oder rufen an – und bekommen innerhalb von 24 Stunden
+          eine Antwort. Versprochen.
+        </p>
+
+        <div class="trust-badges">
+          <span class="trust-badge">📍 Lokal verwurzelt</span>
+          <span class="trust-badge">⚡ Schnelle Umsetzung</span>
+          <span class="trust-badge">💬 Persönliche Betreuung</span>
+          <span class="trust-badge">🔒 Faire Preise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════════ -->
+<section id="cta-final">
+  <div class="container reveal">
+    <span class="section-label">Jetzt starten</span>
+    <h2>Bereit für eine Website,<br>die wirklich Kunden bringt?</h2>
+    <p>
+      Das Gespräch ist kostenlos, unverbindlich und dauert nicht länger als
+      20 Minuten. Wir schauen uns gemeinsam an, was Ihre Website braucht.
+    </p>
+
+    <a href="mailto:hallo@jodaco.de" class="btn cta-btn-large">
+      Kostenlose Erstberatung anfragen &rarr;
+    </a>
+
+    <div class="cta-contact-options">
+      <span class="contact-chip">✉️ hallo@jodaco.de</span>
+      <span class="contact-chip">📞 Auf Anfrage</span>
+      <span class="contact-chip">⏱ Antwort innerhalb 24 Std.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">JODACODE</div>
+    <div class="footer-links">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="mailto:hallo@jodaco.de">Kontakt</a>
+    </div>
+    <div class="footer-copy">&copy; 2025 JODACODE &middot; jodaco.de</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
